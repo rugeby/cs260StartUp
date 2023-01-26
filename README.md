@@ -8,6 +8,9 @@ Change from GitHub
 Change made here:))
 
 Note: 
+first git clone first:
+git clone URL(click code, click HTTPS, copy the link here)
+
 how to trans local file to GitHub:
 git push
 git comment
