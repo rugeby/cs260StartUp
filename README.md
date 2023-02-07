@@ -59,3 +59,35 @@ Key features:
 > Display all categories 
 
 
+
+HTML notes:
+Attributes: describe the specific details of the element.
+id: give a unique ID to the element so that you can distinguish it.
+class: designates the element as being classified into a named group of elements.
+<p id="hello" class="greeting">Hello world</p>
+""/'' all work for attributes
+
+Hyperlinks:
+take you from one page to another another with a simple click
+<a href="https://byu.edu">Go to the Y</a>
+
+<!DOCTYPE html> (this is a header)
+this tells the browser the type and version of ducoment.
+//告诉浏览器文档的类型和版本
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <main>
+      <h1>Hello world</h1>
+      <p class="introduction">
+        HTML welcomes you to the amazing world of
+        <span class="topic">web programming</span>.
+      </p>
+      <p class="question">What will this mean to you?</p>
+      <p class="assignment">Learn more <a href="instruction.html">here</a>.</p>
+    </main>
+  </body>
+</html>
+
+
