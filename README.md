@@ -134,3 +134,12 @@ new one test code:
 </body>
 
 
+trans file to my webpage:
+./deployWebsite.sh -k ~/Desktop/production.pem -h rubyby.click
+(deployWebsite.sh can be changed). \n
+trans file to my simon webpage:
+./deployWebsite.sh -k ~/Desktop/production.pem -h rubyby.click -s simon(also cam be changed)\n
+
+
+
+
