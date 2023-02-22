@@ -141,5 +141,61 @@ trans file to my simon webpage:
 ./deployWebsite.sh -k ~/Desktop/production.pem -h rubyby.click -s simon(also cam be changed)\n
 
 
+notes of html and css:
+
+Html, css, javascript
+CSS - adj
+HTML - nouns
+JS - verbs
+
+HTML:
+Common elements include:
+<p> - represents a paragraph of text
+<h1> - represents the main header on a page -代表一个页面的主要标题
+<img> - embeds an image -  嵌入一个图像
+<form> - represents a form - 代表一种形式
+
+HTML Tages:
+We create elements by writing tags.
+Most(not all) elements consist of an opening and closing tag:
+<p> I am a paragraph </p>
+HTML-paragraph elements:
+<p> context
+
+HTML- heading elements:
+<h>~<h6>字符大小不同，h最大，h6最小
+
+HTML-List Element: ul:  无序列表 <ul><li>list item<li></ul>：
+ol: number list:有序列表 <ol><li></li></ol>
+
+
+
+CSS Rules:
+(almost)everything in CSS follows this basic pattern:
+Selector{
+	property: value;
+}
+
+CSS- Eg: make all <h1>elements purple:
+H1{
+	color: purple;
+}
+
+CSS-Eg: make all image elements 100 pixels wide&200 pixel tall:
+Img{
+	width: 100px;
+	height: 200px;
+}
+
+CSS-Eg: select every other text input and give it a red border:
+input[type = “text”]: nth-of-type(2n){
+	border:2px solid red;
+}
+
+一个很有用的css website: text shadow CSS generator
+https://html-css-js.com/css/generator/text-shadow/
+
+
+
 
 
