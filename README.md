@@ -196,6 +196,19 @@ input[type = “text”]: nth-of-type(2n){
 https://html-css-js.com/css/generator/text-shadow/
 
 
+JavaScript:
+Numbers:
+Java has one number type:
++/-/integers/decimal numbers
 
+Javascript: NaN(Not a Number)
+ 0/0 => NaN
+1 + NaM => NaN
+
+JavaScript-Function:
+Define a function:
+Function funcName(){
+//do something
+}
 
 
