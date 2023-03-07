@@ -1,5 +1,5 @@
 body{
-  background-color: #bbb;
+  background-color:#554d43;
 }
 
 .topic{
@@ -19,14 +19,6 @@ body{
   color: white; /* White text color */
   font-size: 24px; /* Increased font size */
 }
-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-
-
-
 
 
 
@@ -137,12 +129,86 @@ img {vertical-align: middle;}
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background-color:#85796b;
   color: white;
-  font-size: 16px;
-  padding: 12px 24px;
+  font-size: 40px;
+  padding: 24px 24px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 
 
+}
+
+div.cupcake {
+  width: 100%;
+
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  
+}
+
+img.sherry {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+img.strawberry {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+
+body {margin:25px;}
+
+
+h.cupcaketopic{
+  font-size: 40px;
+  font-weight:bolder;
+  color:rgb(255, 255, 255);
+}
+
+button.cupcakeshopnow{
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+div.shopnow{
+  font-size: 40px;
+  color:#f2f2f2;
 }
