@@ -196,6 +196,103 @@ input[type = “text”]: nth-of-type(2n){
 https://html-css-js.com/css/generator/text-shadow/
 
 
+JavaScript:
+Numbers:
+Java has one number type:
++/-/integers/decimal numbers
+
+Javascript: NaN(Not a Number)
+ 0/0 => NaN
+1 + NaM => NaN
+
+JavaScript-Function:
+Define a function:
+Function funcName(){
+//do something
+}
+
+JavaScript: Regular expression:
+创建一个正则表达式：
+Gim: 
+JavaScript Patterns. You can add 3 possible modifiers to the regular expression: case-sensitivity (i), global searches (g), and multiline mode (m). These modifiers influence how the string is parsed. You can combine these by stringing them together, like so: /pattern/gim.
+JavaScript模式。你可以给正则表达式添加3个可能的修饰符：大小写敏感度（i），全局搜索（g）和多行模式（m）。这些修饰符会影响字符串的解析方式。你可以通过把它们串在一起来组合它们，像这样。/pattern/gim。
+Const re = /ab+c/
+Syntax(句法)：
+/pattern/modifiers;  => w3schools/I;
+search(): searches a string for a specified value and returns the position of the match
+let text = "Visit W3Schools";
+let n = text.search(/w3schools/i);
+
+N =6;
+
+replace(): replaces a specified value with another value in a string;
+let text = "Visit Microsoft!";
+let result = text.replace("Microsoft", "W3Schools");
+
+
+JavaScript - Rest and Spread:
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ruby','Li']);
+console.log(p);
+
+function myBio(firstName, lastName, ...otherInfo){
+    return otherInfo; 
+}
+ 
+let spreadResult = myBio("Ruby", "Li", "cs260", "nice", "cool");
+console.log(spreadResult);
+
+function restTest(a, b, ...otherNumber){
+  console.log('a',a);
+  console.log('b',b);
+  console.log('...otherNumber', otherNumber);
+}
+
+restTest(1,2,3,4,5,6);
+
+三个点表示省略。
+
+
+JavaScript: Destruct:
+const AlistFruit = ["banana", "apple","peach", "grape","blueberry"];
+//destruct array here
+const[first, second, ...others] = AlistFruit;
+console.log(first, second);
+console.log("...others = ", others);
+//destruct object here
+
+const object = {a: "banana",  b:12, c:["apple", "peach", "grape"] }
+const {b : number, a : string, c:array} = object;
+console.log("a = string = ", string);
+console.log("b = number = ", number);
+console.log("c = array = ", array);
+
+
+
+
+
+
+JavaScript-Exception:
+
+The try statement defines a code block to run (to try).
+The catch statement defines a code block to handle any error.
+The finally statement defines a code block to run regardless of the result.
+The throw statement defines a custom error.
+try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}
+finally {
+  Block of code to be executed regardless of the try / catch result
+}
+
+
+JavaScript&HTML — DOM(document object model):
 
 
 
