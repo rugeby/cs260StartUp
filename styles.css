@@ -213,18 +213,75 @@ div.shopnow{
   color:#f2f2f2;
 }
 
-body {
-  padding-top: 80px;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+  /*最底下的灰色div*/
+.alertBelowDiv{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(100, 100, 100, 0.8);
+
+  /*将内容居中*/
+  align-items: center;
+  display: -webkit-flex;
+  justify-content: center;
+}
+/*白色确定框*/
+.alertContentDiv{
+  width: 25%;
+  height: 30%;
+  background-color: white;
+  border-radius: 5%;
+}
+/*展示文字部分*/
+.alertTextDiv{
+
+  width: 100%;
+  height: 10%;
+  margin: 15% auto;
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+
+}
+/*取消按钮*/
+.alertCancelDiv{
+  float: left;
+  width: 18%;
+  height: 15%;
+  background-color: lightslategrey;
+  border-radius: 15%;
+  font-weight: 600;
+  color: #fff;
+  align-items: center;
+  display: -webkit-flex;
+  justify-content: center;
+  margin-left: 15%;
+
 }
 
-.show-cart li {
-  display: flex;
-}
-.card {
-  margin-bottom: 20px;
-}
-.card-img-top {
-  width: 200px;
-  height: 200px;
-  align-self: center;
+/*确定按钮*/
+.alertSubmitDiv{
+  float: right;
+  width: 18%;
+  height: 15%;
+  background-color: lightslategrey;
+  border-radius: 15%;
+  font-weight: 600;
+  color: #fff;
+  align-items: center;
+  display: -webkit-flex;
+  justify-content: center;
+  margin-right: 15%;
 }
