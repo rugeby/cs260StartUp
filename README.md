@@ -296,3 +296,119 @@ JavaScript&HTML — DOM(document object model):
 
 
 
+JavaScript - Add to HTML
+
+Index.js:
+
+
+function sayHello() {
+  console.log('hello');
+}
+
+Index.html: 
+
+<head>
+  <script src="javascript.js"></script>
+</head>
+<body>
+  <button onclick="sayHello()">Say Hello</button>
+  <button onclick="sayGoodbye()">Say Goodbye</button>
+  <script>
+    function sayGoodbye() {
+      alert('Goodbye');
+    }
+  </script>
+</body>
+
+
+
+<button onClick="let i=1;i++;console.log(i)">press me</button> 
+<!-- OUTPUT: 2 -->
+
+
+
+
+
+
+
+
+
+JavaScript-types, operation:
+两种方式声明变量： let x = 1;
+Const y =2;
+
+Other object type:
+===(equality)
+
+
+
+
+
+
+
+
+
+三木运算符： Ternary operator:
+A === 1? console.log(1) : console.log(‘not 1’);
+
+
+For in: 
+Const obj = {a: 1, b : ‘fish’}
+For(const name in obj){
+Console.log(name);
+}
+
+Output: a b
+遍历对象的属性名称
+
+对于array 的for (const name in arr)
+遍历arr的index数组索引
+
+For of: 遍历array索引对应的值（不是index）;
+
+
+JavaScript 自带的 String function:
+length: the number of characters in the string
+indexOf: the starting index of a given substring(给定子字符串的起始索引)
+Split: split the string into an array on the given delimiter string
+下面这俩return T/F
+startsWith: 如果字符串里有给定前缀 -> T
+endsWith:如果字符串里有给定后缀. -> T
+toLowerCase
+
+
+
+JavaScript - Function:
+${} 是 getElementByID的缩写
+getElementById(): let you grab an html element by its ID, and perform an action on it.
+可以让你通过它的id抓取一个HTML元素，并对它执行一个动作const myElement = document.getElementById(“demo”);
+myElement.style.color = “red”;
+//get the element and change its color;
+ 
+等价表达：
+Document.getElementById(“demo”).style.color = “red”;
+
+
+JavaScript - Arrow Function:
+() => 3;
+不接受任何参数并且总是返回3；
+
+() => {
+	return 3;
+}
+
+Hello = function() {
+	return “cool”;
+}
+等价于：
+
+Hello = () => {
+Return “cool”;
+}
+
+Hello = () => “cool”; // only can be used if the function only has one statement;
+
+Const add = (x,y) => {
+Return x + y;
+}
+
