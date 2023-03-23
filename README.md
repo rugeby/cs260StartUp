@@ -411,4 +411,18 @@ Hello = () => “cool”; // only can be used if the function only has one state
 Const add = (x,y) => {
 Return x + y;
 }
+	
+	
+Simon Service:
+Index.js: 
+trying to make a bridge that can collect the data from website and save them into database.
+This file is the entry point; 
+Nodes will call it when running the web service;
+
+
+
+After that, use node.js run index.js:
+	Node,js service:
+		app.use(express.static(‘public’));
+
 
