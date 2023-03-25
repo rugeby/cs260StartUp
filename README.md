@@ -424,5 +424,33 @@ Nodes will call it when running the web service;
 After that, use node.js run index.js:
 	Node,js service:
 		app.use(express.static(‘public’));
+	
+	
+	
+Simon -db note:
+	
+	export MONGOUSER=<yourmongodbusername>
+	export MONGOPASSWORD=<yourmongodbpassword>
+	export MONGOHOSTNAME=<yourmongodbhostname>
+	
+	set those 3 veriables to my own mongo username/password/hostname:
+	
+	export MONGOUSER=cs260ruby
+	export MONGOPASSWORD=Liruge@123
+	export MONGOHOSTNAME=cluster0.ebjpusg.mongodb.net
+	
+	this will be set in the code automatically, and store the data in mongo database.
+	
+	step to set up:
+	command line:
+	1. sudo vi /etc/environment
+	2. i(so I can fix and change the file)
+	3. :wq(after change, use this to exit)
+	4. pm2 restart all --update-env
+	5. pm2 save
+	
+	hint: if it does not work, restart the laptop:)
+	
+	
 
 
