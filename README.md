@@ -563,4 +563,56 @@ app.listen(port, function () {
 });
 	
 
+	
+	
+	
+Simon WebSocket note:
+Use JavaScript -> WebSocket API.
+Create a WebSocket conversation:
+
+const socket = new WebSocket('ws://localhost:9900');
+
+socket.onmessage = (event) => {
+  console.log('received: ', event.data);
+};
+
+socket.send('I am listening’);
+
+
+After that:
+WebSocketServer:
+const { WebSocketServer } = require('ws');
+
+const wss = new WebSocketServer({ port: 9900 });
+
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    const msg = String.fromCharCode(...data);
+    console.log('received: %s', msg);
+
+    ws.send(`I heard you say "${msg}"`);
+  });
+
+  ws.send('Hello webSocket');
+});
+
+
+The Step to debug the server:
+Create a dir name: testWebSocket;
+Use command line inside of this dir
+Command line: nom init -y
+Command line: nom install ws
+Main.js:
+const { WebSocketServer } = require('ws');
+
+const wss = new WebSocketServer({ port: 9900 });
+
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    const msg = String.fromCharCode(...data);
+    console.log('received: %s', msg);
+
+    ws.send(`I heard you say "${msg}"`);
+  });
+
 
