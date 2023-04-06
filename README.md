@@ -411,4 +411,208 @@ Hello = () => “cool”; // only can be used if the function only has one state
 Const add = (x,y) => {
 Return x + y;
 }
+	
+	
+Simon Service:
+Index.js: 
+trying to make a bridge that can collect the data from website and save them into database.
+This file is the entry point; 
+Nodes will call it when running the web service;
+
+
+
+After that, use node.js run index.js:
+	Node,js service:
+		app.use(express.static(‘public’));
+	
+	
+	
+Simon -db note:
+	
+	export MONGOUSER=<yourmongodbusername>
+	export MONGOPASSWORD=<yourmongodbpassword>
+	export MONGOHOSTNAME=<yourmongodbhostname>
+	
+	set those 3 veriables to my own mongo username/password/hostname:
+	
+	export MONGOUSER=cs260ruby
+	export MONGOPASSWORD=Liruge@123
+	export MONGOHOSTNAME=cluster0.ebjpusg.mongodb.net
+	
+	this will be set in the code automatically, and store the data in mongo database.
+	
+	step to set up:
+	command line:
+	1. sudo vi /etc/environment
+	2. i(so I can fix and change the file)
+	3. :wq(after change, use this to exit)
+	4. pm2 restart all --update-env
+	5. pm2 save
+	
+	hint: if it does not work, restart the laptop:)
+	
+	
+Simon-Login note:
+Endpoint:
+const express = require('express');
+const app = express();
+
+app.post('/auth/create', async (req, res) => {
+  res.send({ id: 'user@id.com' });
+});
+
+app.post('/auth/login', async (req, res) => {
+  res.send({ id: 'user@id.com' });
+});
+
+const port = 8080;
+app.listen(port, function () {
+  console.log(`Listening on port ${port}`);
+});
+
+App.post()function send all the data we collected from user to our database;
+
+
+app.listen(port, function () {
+  console.log(`Listening on port ${port}`);
+});
+
+
+const { MongoClient } = require('mongodb');
+const uuid = require('uuid');
+const bcrypt = require('bcrypt');
+const cookieParser = require('cookie-parser');
+const express = require('express');
+const app = express();
+
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
+
+const url = `mongodb+srv://${userName}:${password}@${hostname}`;
+const client = new MongoClient(url);
+const collection = client.db('authTest').collection('user');
+
+app.use(cookieParser());
+app.use(express.json());
+
+// createAuthorization from the given credentials
+app.post('/auth/create', async (req, res) => {
+  if (await getUser(req.body.email)) {
+    res.status(409).send({ msg: 'Existing user' });
+  } else {
+    const user = await createUser(req.body.email, req.body.password);
+    setAuthCookie(res, user.token);
+    res.send({
+      id: user._id,
+    });
+  }
+});
+
+// loginAuthorization from the given credentials
+app.post('/auth/login', async (req, res) => {
+  const user = await getUser(req.body.email);
+  if (user) {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      setAuthCookie(res, user.token);
+      res.send({ id: user._id });
+      return;
+    }
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
+
+// getMe for the currently authenticated user
+app.get('/user/me', async (req, res) => {
+  authToken = req.cookies['token'];
+  const user = await collection.findOne({ token: authToken });
+  if (user) {
+    res.send({ email: user.email });
+    return;
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
+
+function getUser(email) {
+  return collection.findOne({ email: email });
+}
+
+async function createUser(email, password) {
+  const passwordHash = await bcrypt.hash(password, 10);
+  const user = {
+    email: email,
+    password: passwordHash,
+    token: uuid.v4(),
+  };
+  await collection.insertOne(user);
+
+  return user;
+}
+
+function setAuthCookie(res, authToken) {
+  res.cookie('token', authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
+
+const port = 8080;
+app.listen(port, function () {
+  console.log(`Listening on port ${port}`);
+});
+	
+
+	
+	
+	
+Simon WebSocket note:
+Use JavaScript -> WebSocket API.
+Create a WebSocket conversation:
+
+const socket = new WebSocket('ws://localhost:9900');
+
+socket.onmessage = (event) => {
+  console.log('received: ', event.data);
+};
+
+socket.send('I am listening’);
+
+
+After that:
+WebSocketServer:
+const { WebSocketServer } = require('ws');
+
+const wss = new WebSocketServer({ port: 9900 });
+
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    const msg = String.fromCharCode(...data);
+    console.log('received: %s', msg);
+
+    ws.send(`I heard you say "${msg}"`);
+  });
+
+  ws.send('Hello webSocket');
+});
+
+
+The Step to debug the server:
+Create a dir name: testWebSocket;
+Use command line inside of this dir
+Command line: nom init -y
+Command line: nom install ws
+Main.js:
+const { WebSocketServer } = require('ws');
+
+const wss = new WebSocketServer({ port: 9900 });
+
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    const msg = String.fromCharCode(...data);
+    console.log('received: %s', msg);
+
+    ws.send(`I heard you say "${msg}"`);
+  });
+
 
