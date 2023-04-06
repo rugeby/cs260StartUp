@@ -616,3 +616,6 @@ wss.on('connection', (ws) => {
   });
 
 
+Startup-Service Note:
+	fetch function: pass data to the database;
+	
