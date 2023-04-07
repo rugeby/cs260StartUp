@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="product.css">
+        <link rel="stylesheet" href="login.css">
+        <script src = "login.js">  </script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <div class="icon-bar">
+    <a class="active" href="index.html"><i class="fa fa-home">HOME</i></a>
+  </div>
+        <link rel="stylesheet" href="../simon-websocket/public/login.css">
+    </head>
+
+<head>
+    <h class = "topic"> &#9731;YummyYums</h>
+    
+    
+</head>
+
+    <main class="container-fluid bg-secondary text-center">
+        <div>
+            <h1>Welcome to Simon</h1>
+            <!-- Displayed when needing authentication -->
+            <div id="loginControls" style="display: none">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">@</span>
+                    <input
+                            class="form-control"
+                            type="text"
+                            id="userName"
+                            placeholder="your@email.com"
+                    />
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">🔒</span>
+                    <input
+                            class="form-control"
+                            type="password"
+                            id="userPassword"
+                            placeholder="password"
+                    />
+                </div>
+                <button type="button" class="btn btn-primary" onclick="loginUser()">
+                    Login
+                </button>
+                <button type="button" class="btn btn-primary" onclick="createUser()">
+                    Create
+                </button>
+            </div>
+            <!-- Displayed when ready to play -->
+            <div id="playControls" style="display: none">
+                <div id="playerName"></div>
+                <button type="button" class="btn btn-primary" onclick="play()">
+                    Play
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="logout()">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Error dialog -->
+<!--        <div class="modal fade" id="msgModal" tabindex="-1">-->
+<!--            <div class="modal-dialog modal-dialog-centered">-->
+<!--                <div class="modal-content text-dark">-->
+<!--                    <div class="modal-body">error message here</div>-->
+<!--                    <div class="modal-footer">-->
+<!--                        <button-->
+<!--                                type="button"-->
+<!--                                class="btn btn-secondary"-->
+<!--                                data-bs-dismiss="modal"-->
+<!--                        >-->
+<!--                            Close-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </main>
+    <script src="login.js"></script>
+
+</html>
