@@ -577,3 +577,6 @@ console.log('received: %s', msg);
 });
 
 
+Startup-Service Note:
+	fetch function: pass data to the database;
+	
