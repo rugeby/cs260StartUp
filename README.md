@@ -618,6 +618,17 @@ wss.on('connection', (ws) => {
 
 Startup-Service Note:
 	fetch function: pass data to the database;
+	debug for Start-up:
+	ssh -i ~/Desktop/production.pem ubuntu@rubyby.click(log in to the services)
+	cd services
+	cd startup
+	pm2 ls
+	pm2 log
+	(control + c) step out
+	npm install
+	(then install from all error it shows)
+	pm2 restart all
+	
 	
 	
 simon-react Note:
