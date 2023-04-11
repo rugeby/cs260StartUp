@@ -39,6 +39,11 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
 });
 
+apiRouter.post('/auth/comments', async (req, res) => {
+    DB.getComments();
+    res.sendStatus(200);
+});
+
 // GetAuth token for the provided credentials
 apiRouter.post('/auth/login', async (req, res) => {
     const user = await DB.getUser(req.body.email);

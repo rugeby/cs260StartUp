@@ -3,14 +3,29 @@
 <html>
 <head>
   <link rel="stylesheet" href="styles.css">
-  <title>Startup.js</title>
-  <script src = "startup.js">  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+<div class="players">
+
+  <div id ="buyerComments">
+  Leave your comments here...
+  <input type="text" id="comments" value="hello world">
+  <button id = "commentbtn" type = "submit" onclick="buyer.getBuyerComment()" >submit</button>
+  </div>
+
+  <span class="player-name"></span>
+  <div id="player-messages"></div>
+</div>
+
+
+
+<div id="picture" class="picture-box">
+</div>
   <div class="icon-bar">
     <a class="active" href="#"><i class="fa fa-home">HOME</i></a>
     <a class="active" href = "login.html"><i class="fa fa-sign-in">LOG IN</i></a>
@@ -30,13 +45,13 @@
 <!-- Slideshow container -->
 <div class="slideshow-container">
   
+  
 
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <img src="chocolate2.jpeg" style="width:100%">
     <div class="text">Chocolate</div>
-    <div class = "shopnow">SHOP MORE</div>
   
   </div>
 
@@ -44,7 +59,6 @@
     <div class="numbertext">2 / 3</div>
     <img src="cupcake.jpeg" style="width:100%">
     <div class="text">Rainbow Cupcake</div>
-    <div class = "shopnow">SHOP MORE</div>
     
   </div>
 
@@ -52,7 +66,6 @@
     <div class="numbertext">3 / 3</div>
     <img src="Strawberrycupcakes.jpeg" style="width:100%">
     <div class="text">Strawberry Cupcake</div>
-    <div class = "shopnow">SHOP MORE</div>
   </div>
 
   <!-- Next and previous buttons -->
@@ -139,6 +152,7 @@
 
 
   </body>
+  <script src = "startup.js">  </script>
 
   
 

@@ -2,13 +2,41 @@ body{
   background-color:#554d43;
 }
 
+#commentbtn{
+  height:25px;
+  width: 50px;
+  color:#554d43
+}
+
 .topic{
     font-size: 40px;
     font-weight:bolder;
     color:rgb(255, 255, 255);
     letter-spacing:3px;
 }
+.players {
+  flex: 1;
+  width: 100%;
+  padding: 0.5em;
+  color:rgba(225, 221, 207, 0.53)
+}
 
+.player-name {
+  color: rgb(118, 190, 210);
+}
+
+#player-messages {
+  padding-top: 0.25em;
+  opacity: 0.7;
+}
+
+.picture-box {
+  height: calc(100px + 1em);
+  margin-bottom: 1em;
+  padding: 0.5em;
+  background: rgb(74, 71, 67);
+  border-radius: 5px;
+}
 
 .icon-bar a {
   float: right; /* Float links side by side */
