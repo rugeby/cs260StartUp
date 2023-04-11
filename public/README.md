@@ -579,4 +579,21 @@ console.log('received: %s', msg);
 
 Startup-Service Note:
 	fetch function: pass data to the database;
+	debug for Start-up:
+	ssh -i ~/Desktop/production.pem ubuntu@rubyby.click(log in to the services)
+	cd services
+	cd startup
+	pm2 ls
+	pm2 log
+	(control + c) step out
+	npm install
+	(then install from all error it shows)
+	pm2 restart all
+	
+	
+	
+simon-react Note:
+	-> jsx file: combine hmtl and javascript together
+	-> before use ./deployReact.sh -k ~/Desktop/production.pem -h rubyby.click -s simon
+	   type "npm install" before(because React tool-chain that bundles my React JSX files into the build directory              that the deployment strip copies to my production env is not installed until i run"npm install")
 	
