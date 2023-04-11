@@ -26,6 +26,40 @@ function displayPicture(data) {
   );
 
 
+
+//express();
+async function createComments() {
+  passComments(`/api/auth/comments`);
+}
+
+
+async function getBuyerName() {
+  return localStorage.getItem('userName') ?? 'Mystery buyer';
+
+}
+
+
+async function passComments(endpoint){
+  const userComment = document.querySelector('#comments')?.value;
+  const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify({email: await getBuyerName(),  comments: userComment }),
+      headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+      }
+  });
+  const body = await response.json();
+  if (response?.status === 200) {
+      localStorage.setItem('userComment', userComment);
+      window.location.href = 'index.html';
+      addComments(userComment);
+  }
+  else{
+      console.log("did not successfully get the comments")
+  }
+}
+
+
 class Buyer{
   buyername;
   buyercomments;
@@ -33,32 +67,26 @@ class Buyer{
 
   constructor(){
     
-    const playerNameEl = document.querySelector('.player-name');
-    playerNameEl.textContent = this.getPlayerName();
+   // const playerNameEl = document.querySelector('.player-name');
+   // playerNameEl.textContent = this.getPlayerName();
 
     this.configureWebSocket();
-
-
-  }
+}
 
 
   getBuyerComment(){
     const buyerComments = document.querySelector('#comments').value;
-    console.log(buyerComments);
-    broadcastEvent('Mystery buyer', buyerComments);
-    saveComment(buyerComments);
-    
-  }
+    this.broadcastEvent('Mystery buyer', buyerComments);
+    // this.saveComment(buyerComments);
+    createComments(buyerComments);
+ }
 
-  getBuyerName() {
-    return localStorage.getItem('userName') ?? 'Mystery buyer';
   
-  }
 
   async saveComment(comments){
-    const buyername = this.getBuyerName();
+    const buyerComments = document.querySelector('#comments').value;
     const date = new Date().toLocaleDateString();
-    const buyercomments = {name: buyername, comments: comments, date:date};
+    const allinfo = {name: buyername, comments: comments, date:date};
     
 
 
@@ -81,6 +109,8 @@ class Buyer{
 
   }
 
+  
+
   configureWebSocket(){
     const protocol = window.location.protocol === 'http:'?'ws':'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
@@ -100,7 +130,7 @@ class Buyer{
 
 
 displayMsg(cls, from, msg){
-  const chatText = document.querySelector('comments');
+  const chatText = document.querySelector('#display-comments');
   chatText.innerHTML = 
   `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
 }

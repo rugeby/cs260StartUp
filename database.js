@@ -14,8 +14,12 @@ const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
 const client = new MongoClient(url);
 const userCollection = client.db('startup').collection('user');
-const scoreCollection = client.db('startup').collection('score');
+const scoreCollection = client.db('simon').collection('score');
 const commentsCollection = client.db('startup').collection('comments');
+
+
+
+//findone
 
 function getUser(email) {
     return userCollection.findOne({ email: email });
@@ -25,8 +29,27 @@ function getUserByToken(token) {
     return userCollection.findOne({ token: token });
 }
 function getComments(comments){
-    return userCollection.findOne({comments: comments});
+    return commentsCollection.findOne({comments: comments});
+   // commentsCollection.find({}, function(err, comments) {
+        
+    //     if (err) {
+    //         // handle error
+    //         console.log(err);
+    //         return;
+    //       }
+        
+    //       // loop through each document in the array
+    //       comments.forEach(function(comment) {
+    //         console.log(comment);
+    //       });
+    //   });
 }
+
+function addComments(comments){
+    return commentsCollection.insertOne(comments);
+}
+
+
 
 async function createUser(email, password) {
     // Hash the password before we insert it into the database
@@ -42,13 +65,24 @@ async function createUser(email, password) {
     return user;
 }
 
-function addComments(comments) {
-    scoreCollection.insertOne(score);
+async function createComments(email, comments) {
+    // Hash the password before we insert it into the database
+   
+
+    const user = {
+        email: email,
+        comments: comments,
+    };
+    await commentsCollection.insertOne(user);
+
+    return user;
 }
+
 
 
 module.exports = {
     getUser,
     getUserByToken,
     createUser,
+    createComments,
 };
