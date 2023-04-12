@@ -578,7 +578,6 @@ console.log('received: %s', msg);
 
 
 Startup-Service Note:
-	fetch function: pass data to the database;
 	debug for Start-up:
 	ssh -i ~/Desktop/production.pem ubuntu@rubyby.click(log in to the services)
 	cd services
@@ -589,6 +588,44 @@ Startup-Service Note:
 	npm install
 	(then install from all error it shows)
 	pm2 restart all
+	
+	for websocket, do not need to pass data to database,
+	but for other info like username/password, they need.
+	
+	quick exaple if pass data to database:
+	async function getUser(email) {
+    const response = await fetch(`/api/user/${email}`);
+    if (response.status === 200) {
+      return response.json();
+    }
+  
+    return null;
+  }
+	
+	async function passComments(endpoint){
+  const userComment = document.querySelector('#comments')?.value;
+  const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify({email: await getBuyerName(),  comments: userComment }),
+      headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+      }
+  });
+  const body = await response.json();
+  if (response?.status === 200) {
+      localStorage.setItem('userComment', userComment);
+      //window.location.href = 'index.html';
+      addComments(userComment);
+  }
+  else{
+      console.log("did not successfully get the comments")
+  }
+}
+	
+	warning: if directly use getBuyerNAme() without await, it will give a promise instead of the real buyer.
+	
+	
+	
 	
 	
 	
